@@ -15,7 +15,7 @@ namespace DCE_API_ASSIGNMENT.Models
         [Required]
         public string LastName { get; set; }
         [Required]
-        public DateTime CreatedOn { get; set; }
+        public DateTime CreatedOn { get; set; } = DateTime.Now;
         [Required]
         public bool IsActive { get; set; }
     }
