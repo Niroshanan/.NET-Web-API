@@ -2,6 +2,8 @@
 using DCE_API_ASSIGNMENT.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace DCE_API_ASSIGNMENT.Controllers
 {
@@ -118,6 +120,21 @@ namespace DCE_API_ASSIGNMENT.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("Active/{customerId}")]
+        public async Task<IActionResult> GetActiveOrdersByCustomer(Guid customerId)
+        {
+            try
+            {
+                var parameter = new SqlParameter("@CustomerId", customerId);
+                var activeOrders = await _db.Order.FromSqlRaw("EXEC GetActiveOrdersByCustomer @CustomerId", parameter).ToListAsync();
 
+                return Ok(activeOrders);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
+        }
     }
 }
