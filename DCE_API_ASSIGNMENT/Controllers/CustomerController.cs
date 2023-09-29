@@ -28,6 +28,11 @@ namespace DCE_API_ASSIGNMENT.Controllers
                     return BadRequest("Invalid customer data.");
                 }
 
+                if (!ModelState.IsValid) // Check if model validation failed
+                {
+                    return BadRequest(ModelState);
+                }
+
                 _db.Customer.Add(newCustomer);
                 _db.SaveChanges();
 
