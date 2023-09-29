@@ -57,7 +57,7 @@ namespace DCE_API_ASSIGNMENT.Controllers
         }
 
 
-        [HttpPut] 
+        [HttpPost] 
         [Route("Update")]
         public IActionResult UpdateCustomer([FromBody] Customer updatedCustomer)
         {
