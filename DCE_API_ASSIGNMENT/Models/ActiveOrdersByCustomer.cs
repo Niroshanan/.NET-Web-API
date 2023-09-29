@@ -2,7 +2,7 @@
 
 namespace DCE_API_ASSIGNMENT.Models
 {
-    public class ActiveOrders
+    public class ActiveOrdersByCustomer
     {
         [Key]
         public Guid OrderId { get; set; }

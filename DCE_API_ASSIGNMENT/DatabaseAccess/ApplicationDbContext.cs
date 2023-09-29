@@ -10,6 +10,11 @@ namespace DCE_API_ASSIGNMENT.DatabaseAccess
             
         }
         public DbSet<Customer> Customer { get; set; }
-        public DbSet<ActiveOrders> Order { get; set; }
+        public DbSet<ActiveOrdersByCustomer> Order { get; set; }
+        public DbSet<Product> Product { get; set; }
+
+        public DbSet<ActiverOrder> activerOrder { get; set; }
+        
+
     }
 }

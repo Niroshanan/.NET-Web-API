@@ -127,9 +127,25 @@ namespace DCE_API_ASSIGNMENT.Controllers
             try
             {
                 var parameter = new SqlParameter("@CustomerId", customerId);
-                var activeOrders = await _db.Order.FromSqlRaw("EXEC GetActiveOrdersByCustomer @CustomerId", parameter).ToListAsync();
+                var activeOrdersByCustomer = await _db.Order.FromSqlRaw("EXEC GetActiveOrdersByCustomer @CustomerId", parameter).ToListAsync();
 
-                return Ok(activeOrders);
+                return Ok(activeOrdersByCustomer);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
+        }
+
+        [HttpGet]
+        [Route("ActiveOrders")]
+        public async Task<IActionResult> ActiveOrdersByCustomer()
+        {
+            try
+            {
+                var activerOrdertest = await _db.activerOrder.FromSqlRaw("EXEC ActiveOrdersByCustomer").ToListAsync();
+
+                return Ok(activerOrdertest);
             }
             catch (Exception ex)
             {
