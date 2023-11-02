@@ -1,6 +1,6 @@
 # DCE_API_ASSIGNMENT
 
-Welcome to the DCE_API_ASSIGNMENT project! This .NET WebAPI project allows you to perform CRUD (Create, Read, Update, Delete) operations on customer details and retrieve active orders through API calls. Below, you'll find instructions on how to set up and use this project.
+Welcome to the .Net Web API project! This .NET WebAPI project allows you to perform CRUD (Create, Read, Update, Delete) operations on customer details and retrieve active orders through API calls. Below, you'll find instructions on how to set up and use this project.
 
 ## Cloning the Repository
 To get started, clone this repository using the following command:
